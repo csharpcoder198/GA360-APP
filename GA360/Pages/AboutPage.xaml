@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="GA360.Pages.AboutPage"
+    Title="About"
+    BackgroundColor="{AppThemeBinding 
+                        Dark={StaticResource WindowBackgroundColorDark}, 
+                        Light={StaticResource WindowBackgroundColor}}"
+    Visual="Material">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical" Margin="5,30,0,0">
+            <Label HorizontalOptions="Center" Text="{ Binding AboutApp}"
+                   TextColor="{AppThemeBinding 
+                                    Dark=White, 
+                                    Light={StaticResource SystemGray5Dark}}" />
+            <Label HorizontalOptions="Center" Text="" />
+            <Label HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding 
+                                    Dark=White, 
+                                    Light={StaticResource SystemGray5Dark}}">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Support: " />
+                        <Span Text="azadmin@guardianangel360.com"
+                              TextColor="Blue"
+                              TextDecorations="Underline" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Button Margin="0,20, 0, 20" Text="Device Settings" Command="{Binding ShowSettingsCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

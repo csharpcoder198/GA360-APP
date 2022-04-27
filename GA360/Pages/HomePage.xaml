@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="GA360.Pages.HomePage"
+    Title="Home"
+    BackgroundColor="{AppThemeBinding 
+                        Dark={StaticResource WindowBackgroundColorDark}, 
+                        Light={StaticResource WindowBackgroundColor}}"
+    Visual="Material">
+    <ContentPage.Content>
+        <Label FontFamily="FAS" Text="{StaticResource IconHome}" HorizontalOptions="CenterAndExpand"
+               VerticalOptions="Center" FontSize="Title" Opacity="20"
+               TextColor="{AppThemeBinding 
+                                    Dark=White, 
+                                    Light={StaticResource SystemGray5Dark}}" />
+
+    </ContentPage.Content>
+</ContentPage>

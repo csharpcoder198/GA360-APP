@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Helpers;
+using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace GA360
 {
@@ -9,20 +9,30 @@ namespace GA360
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            Startup.Init();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()
         {
+            OnResume();
         }
 
         protected override void OnSleep()
         {
+            TheTheme.SetTheme();
+            RequestedThemeChanged -= App_RequestedThemeChanged;
         }
 
         protected override void OnResume()
         {
+            TheTheme.SetTheme();
+            RequestedThemeChanged += App_RequestedThemeChanged;
+        }
+
+        private void App_RequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
+        {
+            MainThread.BeginInvokeOnMainThread(() => { TheTheme.SetTheme(); });
         }
     }
 }

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Grid
+    x:Class="GA360.Cells.GACard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:GA360.Models;assembly=GA360"
+    x:DataType="models:Config"
+    Padding="10">
+    <Frame Style="{StaticResource GA360Card}">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{StaticResource IconCog}" WidthRequest="66" />
+            <StackLayout VerticalOptions="Center">
+                <Label
+                    Style="{StaticResource LabelLarge}"
+                    Text="{Binding Key}"
+                    VerticalOptions="Center" />
+                <Label
+                    Style="{StaticResource LabelLarge}"
+                    Text="{Binding Value}"
+                    VerticalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</Grid>

@@ -35,9 +35,9 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>To Locate Emergency Service</string>
+	<string>To (always) Locate Emergency Service</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>To Locate Emergency Service</string>
+	<string>To (always) Locate Emergency Service</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To Locate Emergency Service</string>
 	<key></key>

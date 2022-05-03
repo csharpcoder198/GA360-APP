@@ -31,9 +31,9 @@ namespace GA360.Pages
             var btn = sender as Button;
             resultLocation.Text = string.Empty;
             btn.IsEnabled = false;
-            var perm = await Xamarin.Essentials.Permissions.RequestAsync<Permissions.LocationWhenInUse>();
-            var isGranted = perm == PermissionStatus.Granted;
-            if (!isGranted)
+            var perm = await Xamarin.Essentials.Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            var deniedOrUnknown = perm == PermissionStatus.Denied || perm == PermissionStatus.Unknown;
+            if (deniedOrUnknown)
                 resultLocation.Text = "You will need to Go to settings | Privacy | GA360 and allow locations to use the app";
             else
             {

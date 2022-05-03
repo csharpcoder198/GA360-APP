@@ -1,24 +1,40 @@
-﻿using Helpers;
+﻿using System;
+using System.Threading.Tasks;
+using GA360.Services;
+using Helpers;
 using Xamarin.Essentials;
+using Xamarin.Essentials.Implementation;
 using Xamarin.Forms;
 
 namespace GA360
 {
     public partial class App : Application
     {
-        
+        // private reaIPreferencesService _preferencesService;
         public App()
         {
             InitializeComponent();
             Startup.Init();
 
             MainPage = new AppShell();
+
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
             OnResume();
+            await GpsPermissions();
 
+        }
+
+        private async Task GpsPermissions()
+        {
+            await Xamarin.Essentials.Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            /*
+            object v = Startup.ServiceProvider.GetService(typeof(IPreferencesService));
+            IPreferencesService ps = (IPreferencesService)v;
+            ps.GPSPermissionStatus = (int)await Xamarin.Essentials.Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            */
         }
 
         protected override void OnSleep()

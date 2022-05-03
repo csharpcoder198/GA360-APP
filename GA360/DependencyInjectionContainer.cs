@@ -8,6 +8,14 @@ namespace GA360
 {
     public static class DependencyInjectionContainer
     {
+        /// <summary>
+        /// To Get one of these services the most likely pattern will be to
+        /// use Constructor Injection.
+        /// Alternatively you may call
+        /// <IServivice> = Startup.ServiceProvider.GetService<Service>();
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static IServiceCollection ConfigureServices(this IServiceCollection services)
         {
             services.AddSingleton<IAppInfo, AppInfoImplementation>();

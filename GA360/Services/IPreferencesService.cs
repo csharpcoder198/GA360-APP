@@ -4,6 +4,7 @@ namespace GA360.Services
     {
         int Radius { get; set; }
         int Theme { get; set; }
+        int GPSPermissionStatus { get; set; }
 
         string LanguageCode { get; set; }
     }

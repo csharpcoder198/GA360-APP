@@ -6,16 +6,19 @@ namespace GA360
 {
     public partial class App : Application
     {
+        
         public App()
         {
             InitializeComponent();
             Startup.Init();
+
             MainPage = new AppShell();
         }
 
         protected override void OnStart()
         {
             OnResume();
+
         }
 
         protected override void OnSleep()
@@ -28,6 +31,7 @@ namespace GA360
         {
             TheTheme.SetTheme();
             RequestedThemeChanged += App_RequestedThemeChanged;
+            
         }
 
         private void App_RequestedThemeChanged(object sender, AppThemeChangedEventArgs e)

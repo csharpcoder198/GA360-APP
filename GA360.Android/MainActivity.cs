@@ -27,6 +27,9 @@ namespace GA360.Droid
         }
     }
     /*
+     * 
+    TODO Findout Why this is here. It wont compile but the sample MyCoffeeApp has it included.
+    The actual Dark/Light seems to work. Dont know Why.
     public class Environment : IEnvironment
     {
         public async void SetStatusBarColor(System.Drawing.Color color, bool darkStatusBarTint)
@@ -53,4 +56,6 @@ namespace GA360.Droid
         
     }
     */
+
+    
 }

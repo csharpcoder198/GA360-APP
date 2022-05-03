@@ -3,19 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.810.21
 MinimumVisualStudioVersion = 10.0.40219.1
+	= ======
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA360.Android", "GA360.Android\GA360.Android.csproj", "{49678306-6941-4DF2-8B0D-DA84A505A722}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA360.iOS", "GA360.iOS\GA360.iOS.csproj", "{745CEE85-20EF-4A0E-9813-C1BE776105CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA360", "GA360\GA360.csproj", "{EC187D40-77D7-4BC6-93EC-C695F636EAC2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{65522EE3-7A86-4ABD-91E6-F76FDDE2B7BE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{65522EE3-7A86-4ABD-91E6-F76FDDE2B7BE}"
+	ProjectSection(SolutionItems) = preProject
+		build.cake = build.cake
+	EndProjectSection
 EndProject
-<<<<<<< HEAD
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA360.UnitTest", "GA360.UnitTest\GA360.UnitTest.csproj", "{2BE78762-011C-44F6-A4E5-05F7313F592D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA360.Tests", "GA360.Tests\GA360.Tests.csproj", "{ACA22250-532E-43A8-87FA-EFCA5DB66162}"
 EndProject
-=======
->>>>>>> master
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,18 +63,18 @@ Global
 		{EC187D40-77D7-4BC6-93EC-C695F636EAC2}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{EC187D40-77D7-4BC6-93EC-C695F636EAC2}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{EC187D40-77D7-4BC6-93EC-C695F636EAC2}.Release|iPhone.Build.0 = Release|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{2BE78762-011C-44F6-A4E5-05F7313F592D}.Release|iPhone.Build.0 = Release|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{ACA22250-532E-43A8-87FA-EFCA5DB66162}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

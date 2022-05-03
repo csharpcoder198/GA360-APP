@@ -49,7 +49,7 @@
 <RunCodeAnalysis>true</RunCodeAnalysis>  <AndroidLinkTool>r8</AndroidLinkTool>
 <AndroidPackageFormat>aab</AndroidPackageFormat>
 <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
-<AndroidSupportedAbis>armeabi-v7a;x86</AndroidSupportedAbis>
+<AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
 </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -80,6 +80,8 @@
     <None Include="Signing\%28STEP1%29createzipforGooglePlayStore.txt" />
     <None Include="Signing\CERIFICATES-NEVER-LOSE-TRACK\GA360UPLOADTOGOOGLEPLAY.zip" />
     <None Include="Signing\Google Play Developers Guide Revised %28Approved%29.docx" />
+    <None Include="Signing\CERIFICATES-NEVER-LOSE-TRACK\GuardianAngel360.keystore" />
+    <None Include="Signing\CERIFICATES-NEVER-LOSE-TRACK\sign.sh" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml" />

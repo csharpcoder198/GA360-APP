@@ -34,5 +34,13 @@
 	<string>GA360</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To Locate Emergency Service</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To Locate Emergency Service</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To Locate Emergency Service</string>
+	<key></key>
+	<string></string>
 </dict>
 </plist>

@@ -3,7 +3,10 @@ using System.Threading.Tasks;
 using GA360.Models;
 using GA360.Services;
 using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.Essentials;
 using Xamarin.Essentials.Interfaces;
+using Nito.AsyncEx;
+
 
 namespace GA360.PageModels
 {
@@ -11,12 +14,15 @@ namespace GA360.PageModels
     {
         private readonly IPreferencesService _preferencesService;
         private readonly IClipboard _clipBoard;
+        private readonly IPermissions _permissions;
 
         private string _languageCode;
 
         private int _radius;
 
         private int _theme;
+
+        private bool _allowLocation;
 
         private bool _isVisibleToClipBoard;
         
@@ -25,20 +31,16 @@ namespace GA360.PageModels
         public AsyncCommand ToClipBoardCommand { get; set; }
         
         public bool IsVisibleToClipBoard { get => _isVisibleToClipBoard; set => SetProperty(ref _isVisibleToClipBoard, value); }
-        
-        public ConfigPageModel(IPreferencesService preferencesService, IClipboard clipBoard)
+
+        public ConfigPageModel(IPreferencesService preferencesService, IClipboard clipBoard, IPermissions permissions)
         {
             _preferencesService = preferencesService;
             _clipBoard = clipBoard;
+            _permissions = permissions;
+
             ToClipBoardCommand = new AsyncCommand(ToClipBoard);
         }
-
-        private async Task ToClipBoard()
-        {
-            await _clipBoard.SetTextAsync(this.ToString());
-            IsVisibleToClipBoard = true;
-        }
-
+        
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -46,6 +48,14 @@ namespace GA360.PageModels
             sb.AppendLine($"LanguageCode = {LanguageCode}");
             sb.AppendLine($"Theme = {Theme}");
             return sb.ToString();
+        }
+
+        public bool AllowLocation
+        {
+            get
+            {
+                return true;
+            }
         }
 
         public int Theme
@@ -80,6 +90,12 @@ namespace GA360.PageModels
                 base.SetProperty(ref _languageCode, value);
                 _preferencesService.LanguageCode = value;
             }
+        }
+        
+        private async Task ToClipBoard()
+        {
+            await _clipBoard.SetTextAsync(this.ToString());
+            IsVisibleToClipBoard = true;
         }
     }
 }

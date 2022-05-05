@@ -20,6 +20,13 @@ namespace GA360.PageModels
 
         private Xamarin.Essentials.Location _location;
 
+        private bool _connectionFrameVisible;
+        public bool ConnectionFrameVisible
+        {
+            get => ConnectionFrameVisible;
+            set => SetProperty(ref _connectionFrameVisible, value);
+        }
+
         PermissionStatus _permissionStatus;
         public PermissionStatus PermissionStatus
         {

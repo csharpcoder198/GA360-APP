@@ -3,18 +3,32 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="GA360.Pages.HomePage"
+    xmlns:cvt="clr-namespace:GA360.Pages.Converters;assembly=GA360"
     Title="Home"
     BackgroundColor="{AppThemeBinding 
                         Dark={StaticResource WindowBackgroundColorDark}, 
                         Light={StaticResource WindowBackgroundColor}}"
     Visual="Material">
+    <ContentPage.Resources>
+        <cvt:BooleanNot x:Key="notConverter" />
+    </ContentPage.Resources>
     <ContentPage.Content>
         
+        
         <StackLayout Orientation="Vertical">
-            <Button x:Name="ButtonLat" Text = "Location Services and Get Lat/Long" Clicked ="Button_Clicked" HorizontalOptions = "CenterAndExpand" VerticalOptions="Center" WidthRequest="250"/> 
-            <Button x:Name = "stopButton" Text="Stop getting Location" Clicked="Button1_Clicked"
+            <Button x:Name="SendNotify" Clicked="ButtonNotify_Clicked" WidthRequest="250" Text="Visual Alaert" HorizontalOptions = "CenterAndExpand"
+                    IsVisible = "{Binding ConnectionFrameVisible, Converter={StaticResource notConverter}}" VerticalOptions="Center"/>
+            <Button x:Name="ButtonLat" IsVisible = "false" Text = "Location Services and Get Lat/Long" Clicked ="Button_Clicked" HorizontalOptions = "CenterAndExpand" VerticalOptions="Center" WidthRequest="250"/> 
+            <Button x:Name = "stopButton" IsVisible = "false" Text="Stop getting Location" Clicked="Button1_Clicked"
                     HorizontalOptions = "CenterAndExpand" VerticalOptions="Center" WidthRequest="250" IsEnabled="False"/>
+            <Frame WidthRequest="250" IsVisible="{Binding ConnectionFrameVisible}" VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                  <Label Text="When it is safe to do so, select Connect" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                  <Button IsVisible = "{Binding ConnectionFrameVisible}" Text="Connect" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Clicked="Button_Clicked_1"/>
+                </StackLayout>
+            </Frame>
             <Label x:Name="resultLocation"  VerticalOptions="Center" WidthRequest="250" Margin="80,10,10,10"/>
+
             
         </StackLayout>
     

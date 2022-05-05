@@ -23,7 +23,7 @@ namespace GA360.PageModels
         private bool _connectionFrameVisible;
         public bool ConnectionFrameVisible
         {
-            get => ConnectionFrameVisible;
+            get => _connectionFrameVisible;
             set => SetProperty(ref _connectionFrameVisible, value);
         }
 

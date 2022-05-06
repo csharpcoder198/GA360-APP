@@ -30,7 +30,7 @@ namespace GA360.Pages
             Device.BeginInvokeOnMainThread(async () =>
             {
                 //DisplayAlert("Notification tapped", "", "OK");
-                if (await DisplayAlert("Do you want to be connected with a medical professional?", "", "Yes", "No"))
+                if (await DisplayAlert("GA360", $"Do you want to be connected {Environment.NewLine}with a medical professional?", "Yes", "No"))
                 {
                     HomePageModel hpm = BindingContext as HomePageModel;
                     hpm.ConnectionFrameVisible = true;
@@ -42,7 +42,7 @@ namespace GA360.Pages
         {
             Device.BeginInvokeOnMainThread(async() =>
             {
-                if (await DisplayAlert("Do you want to be connected with a medical professional?", "", "Yes", "No"))
+                if (await DisplayAlert("GA360", $"Do you want to be connected{Environment.NewLine}with a medical professional?", "Yes", "No"))
                 {
                     HomePageModel hpm = BindingContext as HomePageModel;
                     hpm.ConnectionFrameVisible = true;
@@ -110,8 +110,9 @@ namespace GA360.Pages
                 // ReturningData = "Dummy Data",
                 NotificationId = 1337
                 // NotifyTime = DateTime.Now.AddSeconds(5)
+                
             };
-
+            
             await NotificationCenter.Current.Show(notification);
         }
 

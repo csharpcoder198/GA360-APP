@@ -150,4 +150,10 @@
   <ItemGroup>
     <Folder Include="Signing\" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ic_launcher.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

@@ -208,7 +208,7 @@
                                     <RadioButton.Content>
                                         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                             <Label
-                                                FontSize="Body"
+                                                FontSize="Small"
                                                 Text="English"
                                                 TextColor="#323130" />
                                         </StackLayout>
@@ -222,7 +222,7 @@
                                     <RadioButton.Content>
                                         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                             <Label
-                                                FontSize="Body"
+                                                FontSize="Small"
                                                 Text="Spanish"
                                                 TextColor="#323130" />
                                         </StackLayout>

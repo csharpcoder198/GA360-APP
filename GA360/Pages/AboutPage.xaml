@@ -9,26 +9,28 @@
                         Light={StaticResource WindowBackgroundColor}}"
     Visual="Material">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical" Margin="5,30,0,0">
-            <Label HorizontalOptions="Center" Text="{ Binding AboutApp}"
+        <ScrollView>
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical" Margin="5,30,0,0">
+                <Label HorizontalOptions="Center" Text="{ Binding AboutApp}"
                    TextColor="{AppThemeBinding 
                                     Dark=White, 
                                     Light={StaticResource SystemGray5Dark}}" />
-            <Label HorizontalOptions="Center" Text="" />
-            <Label HorizontalOptions="Center"
+                <Label HorizontalOptions="Center" Text="" />
+                <Label HorizontalOptions="Center"
                    TextColor="{AppThemeBinding 
                                     Dark=White, 
                                     Light={StaticResource SystemGray5Dark}}">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Support: " />
-                        <Span Text="azadmin@guardianangel360.com"
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Support: " />
+                            <Span Text="azadmin@guardianangel360.com"
                               TextColor="Blue"
                               TextDecorations="Underline" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <Button Margin="0,20, 0, 20" Text="Device Settings" Command="{Binding ShowSettingsCommand}" />
-        </StackLayout>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Button Margin="0,20, 0, 20" Text="Device Settings" Command="{Binding ShowSettingsCommand}" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

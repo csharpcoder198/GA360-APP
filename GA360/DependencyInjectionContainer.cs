@@ -3,7 +3,7 @@ using GA360.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
-
+using Xamarin.Forms;
 namespace GA360
 {
     public static class DependencyInjectionContainer
@@ -26,6 +26,7 @@ namespace GA360
             services.AddSingleton<IClipboard, ClipboardImplementation>();
             services.AddSingleton<IDeviceInfo, DeviceInfoImplementation>();
             services.AddSingleton<IGeolocation, GeolocationImplementation>();
+            services.AddSingleton<IMessagingCenter, MessagingCenter>();
             
             return services;
         }

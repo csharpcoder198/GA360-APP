@@ -7,6 +7,7 @@ using MvvmHelpers;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Essentials.Interfaces;
+using Xamarin.Forms;
 
 namespace GA360.PageModels
 {
@@ -15,8 +16,16 @@ namespace GA360.PageModels
         private readonly IPermissions _permissions;
         private readonly IDeviceInfo _deviceInfo;
         private readonly IPreferences _preferences;
+        private readonly IMessagingCenter _messagingCenter;
 
         private Xamarin.Essentials.Location _location;
+
+        private bool _connectionFrameVisible;
+        public bool ConnectionFrameVisible
+        {
+            get => _connectionFrameVisible;
+            set => SetProperty(ref _connectionFrameVisible, value);
+        }
 
         PermissionStatus _permissionStatus;
         public PermissionStatus PermissionStatus
@@ -30,18 +39,27 @@ namespace GA360.PageModels
         public IAsyncCommand RequestGrantPermissionAsyncCommand { get; }
 
         public IAsyncCommand SimpleCheckGpsCommand { get; }
-        public HomePageModel(IPermissions permissions, IDeviceInfo deviceInfo, IPreferences preferences)
+        public HomePageModel(IPermissions permissions, IDeviceInfo deviceInfo, IPreferences preferences, IMessagingCenter messagingCenter )
         {
 
             _permissions = permissions;
             _deviceInfo = deviceInfo;
             _preferences = preferences;
-           
+            _messagingCenter = messagingCenter;
+            _messagingCenter.Subscribe<HomePageModel, object>(this, "position", async (sender, arg) =>
+             {
+                 await Task.Delay(100);
+
+
+             });
+
+
         }
 
         private async Task SimpleCheckGps()
         {
             var status = await _permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            
         }
     }
 }

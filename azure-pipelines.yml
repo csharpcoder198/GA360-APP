@@ -1,7 +1,5 @@
 # Xamarin.Android
 
-
-
 # Build a Xamarin.Android project.
 # Add steps that test, sign, and distribute an app, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
@@ -39,6 +37,17 @@ steps:
     PathtoPublish: '$(outputDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+    
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'ProductionAndroid'
+    appSlug: 'GuardianAngel360/GA360-APP.Android'
+    appFile: '$(outputdirectory)/com.guardianangel360.ga360.apk'
+    buildVersion: '1'
+    symbolsOption: 'Android'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'Here they are'
+    destinationType: 'groups'
     
 #- task: AndroidSigning@3
 #  inputs:

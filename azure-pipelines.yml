@@ -12,7 +12,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
+  droidOutputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)/Droid'
+  iOSOutputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)/iOS'
 
 steps:
 - task: JavaToolInstaller@0
@@ -29,12 +30,12 @@ steps:
 - task: XamarinAndroid@1
   inputs:
     projectFile: '**/*droid*.csproj'
-    outputDirectory: '$(outputDirectory)'
+    outputDirectory: '$(droidOutputDirectory)'
     configuration: '$(buildConfiguration)'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(outputDirectory)'
+    PathtoPublish: '$(droidOutputDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
     
@@ -42,7 +43,7 @@ steps:
   inputs:
     serverEndpoint: 'ProductionAndroid'
     appSlug: 'GuardianAngel360/GA360-APP.Android'
-    appFile: '$(outputdirectory)/com.guardianangel360.ga360.apk'
+    appFile: '$(droidOutputdirectory)/com.guardianangel360.ga360.apk'
     buildVersion: '1'
     symbolsOption: 'Android'
     releaseNotesOption: 'input'

@@ -50,6 +50,13 @@ steps:
     releaseNotesInput: 'Here they are'
     destinationType: 'groups'
     
+- task: AndroidSigning@3
+  inputs:
+    apkFiles: '**/*.apk'
+    apksignerKeystoreFile: 'GA360.Android/GA360.Android/Signing/CERIFICATES-NEVER-LOSE-TRACK/GuardianAngel360.keystore'
+    apksignerKeystorePassword: 'AcatoIm2022!'
+    apksignerKeystoreAlias: 'GuardianAngel360'
+    
 #- task: AndroidSigning@3
 #  inputs:
 #    apksign: true

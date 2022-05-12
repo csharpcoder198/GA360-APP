@@ -50,6 +50,10 @@
 <AndroidPackageFormat>apk</AndroidPackageFormat>
 <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
 <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+<AndroidSigningKeyStore>/Users/markwardell/Documents/src/GA360/GA360.Android/Signing/CERIFICATES-NEVER-LOSE-TRACK/GuardianAngel360.keystore</AndroidSigningKeyStore>
+<AndroidSigningStorePass>AcatoIm2022!</AndroidSigningStorePass>
+<AndroidSigningKeyAlias>GuardianAngel360</AndroidSigningKeyAlias>
+<AndroidSigningKeyPass>AcatoIm2022!</AndroidSigningKeyPass>
 </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -61,6 +65,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Shiny.Core" Version="2.5.1" />
+    <PackageReference Include="Shiny.Locations" Version="2.5.1" />
+    <PackageReference Include="Shiny.Notifications" Version="2.5.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />

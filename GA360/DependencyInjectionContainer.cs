@@ -1,9 +1,12 @@
 using GA360.PageModels;
 using GA360.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+using Shiny.Locations;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
+
 namespace GA360
 {
     public static class DependencyInjectionContainer
@@ -27,7 +30,11 @@ namespace GA360
             services.AddSingleton<IDeviceInfo, DeviceInfoImplementation>();
             services.AddSingleton<IGeolocation, GeolocationImplementation>();
             services.AddSingleton<IMessagingCenter, MessagingCenter>();
+            //services.UseGeofencing<GeofenceDelegate>();
+            services.AddSingleton<IGeofenceDelegate, GeofenceDelegate>();
+            services.UseNotifications();
             
+
             return services;
         }
 

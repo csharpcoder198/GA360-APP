@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GA360
 {
+    
     public static class Startup
     {
         public static IServiceProvider ServiceProvider { get; set; }

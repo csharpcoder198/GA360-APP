@@ -4,13 +4,13 @@ using Shiny.Notifications;
 
 public class GeofenceDelegate : IGeofenceDelegate
     {
-        readonly INotificationManager notificationManager;
+        private readonly INotificationManager _notificationManager;
         
 
 
         public GeofenceDelegate(INotificationManager notificationManager)
         {
-            this.notificationManager = notificationManager;
+            _notificationManager = notificationManager;
             
         }
 
@@ -20,7 +20,7 @@ public class GeofenceDelegate : IGeofenceDelegate
             var state = newStatus.ToString().ToUpper();
 
            
-            await this.notificationManager.Send(
+            await _notificationManager.Send(
                 "Geofencing",
                 $"You {state} the geofence"
             );

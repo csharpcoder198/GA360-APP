@@ -1,9 +1,7 @@
 
-using System;
 using System.Threading.Tasks;
-using System.Timers;
-using GA360.Services;
 using MvvmHelpers;
+using Shiny.Locations;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Essentials.Interfaces;
@@ -17,6 +15,8 @@ namespace GA360.PageModels
         private readonly IDeviceInfo _deviceInfo;
         private readonly IPreferences _preferences;
         private readonly IMessagingCenter _messagingCenter;
+        private readonly IGeofenceManager _geofenceManager;
+        private readonly IGeofenceDelegate _geofenceDelegate;
 
         private Xamarin.Essentials.Location _location;
 
@@ -39,19 +39,22 @@ namespace GA360.PageModels
         public IAsyncCommand RequestGrantPermissionAsyncCommand { get; }
 
         public IAsyncCommand SimpleCheckGpsCommand { get; }
-        public HomePageModel(IPermissions permissions, IDeviceInfo deviceInfo, IPreferences preferences, IMessagingCenter messagingCenter )
+        public HomePageModel(IPermissions permissions, IDeviceInfo deviceInfo, IPreferences preferences, IMessagingCenter messagingCenter)
         {
 
             _permissions = permissions;
             _deviceInfo = deviceInfo;
             _preferences = preferences;
             _messagingCenter = messagingCenter;
+            
             _messagingCenter.Subscribe<HomePageModel, object>(this, "position", async (sender, arg) =>
              {
                  await Task.Delay(100);
 
 
              });
+
+            Startup.ServiceProvider.GetService(typeof(IGeofenceManager));
 
 
         }

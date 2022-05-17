@@ -1,6 +1,6 @@
-using GA360;
 using GA360.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Shiny;
 using Xamarin.Forms;
 
 namespace Helpers
@@ -11,7 +11,7 @@ namespace Helpers
 
         static TheTheme()
         {
-            _preferences = Startup.ServiceProvider.GetService<IPreferencesService>();
+            _preferences = ShinyHost.ServiceProvider.GetService<IPreferencesService>();
         }
 
         public static void SetTheme()

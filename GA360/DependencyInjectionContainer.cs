@@ -4,8 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
+
 namespace GA360
 {
+    // TODO: RENAME to ServiceCollectionExtensions
     public static class DependencyInjectionContainer
     {
         /// <summary>

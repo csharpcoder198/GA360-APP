@@ -1,22 +1,27 @@
-using System;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Shiny;
 
 namespace GA360
 {
-    public static class Startup
+    public class Startup : ShinyStartup
     {
-        public static IServiceProvider ServiceProvider { get; set; }
-
-        public static IServiceProvider Init()
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
         {
-            var serviceProvider = new ServiceCollection()
-                .ConfigureServices()
-                .ConfigureViewModels()
-                .BuildServiceProvider();
+            // we inject our db so we can use it in our shiny background events to store them for display later
+            services.AddSingleton<SampleSqliteConnection>();
 
-            ServiceProvider = serviceProvider;
+            services.UseGeofencing<GeofenceDelegate>();
 
-            return serviceProvider;
+            // if you need some very real-time geofencing, you want to use below - this will really hurt your user's battery
+            //services.UseGpsDirectGeofencing<GeofenceDelegate>();
+
+            // let's send some notifications from our geofence
+            services.UseNotifications();
+
+            // we use this in the example, it isn't needed for geofencing in general
+            services.UseGps();
+            services.ConfigureServices();
+            services.ConfigureViewModels();
         }
     }
 }

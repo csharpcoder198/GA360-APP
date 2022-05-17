@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using GA360.PageModels;
 using Plugin.LocalNotification;
 using Plugin.LocalNotification.EventArgs;
+using Shiny;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,7 +18,7 @@ namespace GA360.Pages
         public HomePage()
         {
             InitializeComponent();
-            BindingContext = Startup.ServiceProvider.GetService<HomePageModel>();
+            BindingContext = ShinyHost.ServiceProvider.GetService<HomePageModel>();
             HomePageModel hpm = BindingContext as HomePageModel;
             hpm.ConnectionFrameVisible = false;
             NotificationCenter.Current.NotificationReceived += Current_NotificationReceived;

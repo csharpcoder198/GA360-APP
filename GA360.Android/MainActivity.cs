@@ -1,7 +1,9 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Shiny;
 
 //[assembly: Dependency(typeof(GA360.Droid.Environment))]
 namespace GA360.Droid
@@ -25,7 +27,22 @@ namespace GA360.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+        
+        protected override void OnNewIntent(Intent intent)
+        {
+            base.OnNewIntent(intent);
+            this.ShinyOnNewIntent(intent);
+        }
+
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            this.ShinyOnActivityResult(requestCode, resultCode, data);
+        }
     }
+    
+    
     /*
      * 
     TODO Findout Why this is here. It wont compile but the sample MyCoffeeApp has it included.

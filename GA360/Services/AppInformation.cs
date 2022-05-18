@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
+using Shiny;
 using Xamarin.Essentials;
 using Xamarin.Essentials.Interfaces;
 
@@ -11,7 +12,8 @@ namespace GA360.Services
 
         public AppInformation()
         {
-            _appInfo = Startup.ServiceProvider.GetService<IAppInfo>();
+            // _appInfo = Startup.ServiceProvider.GetService<IAppInfo>();
+            _appInfo = ShinyHost.ServiceProvider.GetService<IAppInfo>();
         }
 
         public void ShowSettingsUI()

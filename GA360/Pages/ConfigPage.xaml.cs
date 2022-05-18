@@ -1,6 +1,7 @@
 ﻿using GA360.PageModels;
 using GA360.Services;
 using Helpers;
+using Shiny;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,9 +17,9 @@ namespace GA360.Pages
         public ConfigPage()
         {
             InitializeComponent();
-            BindingContext = Startup.ServiceProvider.GetService<ConfigPageModel>();
+            BindingContext = ShinyHost.ServiceProvider.GetService<ConfigPageModel>();
 
-            _preferencesService = Startup.ServiceProvider.GetService<IPreferencesService>();
+            _preferencesService = ShinyHost.ServiceProvider.GetService<IPreferencesService>();
             switch (_preferencesService.Theme)
             {
                 case 0:

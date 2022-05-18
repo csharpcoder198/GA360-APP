@@ -1,4 +1,5 @@
 ﻿using GA360.PageModels;
+using Shiny;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace GA360.Pages
         public AboutPage()
         {
             InitializeComponent();
-            BindingContext = Startup.ServiceProvider.GetService<AboutPageModel>();
+            BindingContext = ShinyHost.ServiceProvider.GetService<AboutPageModel>();
         }
 
         protected override void OnAppearing()

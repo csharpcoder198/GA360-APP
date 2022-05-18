@@ -1,9 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
-using GA360.Services;
+﻿using System.Threading.Tasks;
 using Helpers;
 using Xamarin.Essentials;
-using Xamarin.Essentials.Implementation;
 using Xamarin.Forms;
 
 namespace GA360
@@ -14,7 +11,7 @@ namespace GA360
         public App()
         {
             InitializeComponent();
-            Startup.Init();
+           // Startup.Init();
 
             MainPage = new AppShell();
 

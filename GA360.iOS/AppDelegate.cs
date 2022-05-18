@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using Helpers;
+using Shiny;
 using UIKit;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -22,10 +23,10 @@ namespace GA360.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            this.ShinyFinishedLaunching(new Startup(), options);
             global::Xamarin.Forms.Forms.Init();
             global::Xamarin.Forms.FormsMaterial.Init();
-            LoadApplication(new App());
-
+            this.LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
     }
